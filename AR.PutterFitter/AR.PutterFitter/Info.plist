@@ -19,12 +19,18 @@
 			</array>
 		</dict>
 	</dict>
-    <key>GADApplicationIdentifier</key>
-    <string>ca-app-pub-4411899771994288~9253559285</string>
-    <key>SKAdNetworkItems</key>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>cstr6suwn9.skadnetwork</string>
-    </dict>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-4411899771994288~9253559285</string>
+	<key>SKAdNetworkItems</key>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>cstr6suwn9.skadnetwork</string>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Kanit-Regular.ttf</string>
+		<string>Kanit-Medium.ttf</string>
+		<string>Kanit-Black.ttf</string>
+	</array>
 </dict>
 </plist>

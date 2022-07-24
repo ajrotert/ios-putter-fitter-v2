@@ -7,30 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23267963288CDB7500E98E42 /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23267962288CDB7500E98E42 /* Kanit-Black.ttf */; };
+		23267965288CE46600E98E42 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267964288CE46600E98E42 /* LoadingCell.swift */; };
+		23267967288CE48600E98E42 /* LoadingSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267966288CE48600E98E42 /* LoadingSectionController.swift */; };
+		23267969288CE69100E98E42 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267968288CE69100E98E42 /* ButtonCell.swift */; };
+		2326796B288CE74400E98E42 /* ButtonSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326796A288CE74400E98E42 /* ButtonSectionController.swift */; };
 		239ACA51288C149900D87763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA50288C149900D87763 /* AppDelegate.swift */; };
 		239ACA53288C149900D87763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA52288C149900D87763 /* SceneDelegate.swift */; };
-		239ACA55288C149900D87763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA54288C149900D87763 /* ViewController.swift */; };
+		239ACA55288C149900D87763 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA54288C149900D87763 /* OptionsViewController.swift */; };
 		239ACA5A288C149B00D87763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239ACA59288C149B00D87763 /* Assets.xcassets */; };
 		239ACA65288C164800D87763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 239ACA64288C164800D87763 /* LaunchScreen.storyboard */; };
 		239ACA69288C178E00D87763 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA68288C178E00D87763 /* ColorExtensions.swift */; };
 		239ACA6B288C179B00D87763 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA6A288C179B00D87763 /* StringExtensions.swift */; };
 		23C52A41288C211D00949AC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23C52A40288C211D00949AC0 /* GoogleService-Info.plist */; };
+		23C52A45288C2D7D00949AC0 /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23C52A44288C2D7D00949AC0 /* Kanit-Medium.ttf */; };
+		23C52A47288C2DA500949AC0 /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23C52A46288C2DA500949AC0 /* Kanit-Regular.ttf */; };
+		23C52A49288C2DFA00949AC0 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A48288C2DFA00949AC0 /* FontHelper.swift */; };
+		23C52A4D288C328D00949AC0 /* OptionSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A4C288C328D00949AC0 /* OptionSectionController.swift */; };
+		23C52A4F288C342F00949AC0 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A4E288C342F00949AC0 /* OptionCell.swift */; };
+		23C52A52288C859500949AC0 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A51288C859500949AC0 /* ProgressCell.swift */; };
+		23C52A55288C85CA00949AC0 /* ProgressSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A54288C85CA00949AC0 /* ProgressSectionController.swift */; };
+		23C52A57288C925800949AC0 /* OptionTitleSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A56288C925800949AC0 /* OptionTitleSectionController.swift */; };
+		23C52A59288C926F00949AC0 /* OptionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A58288C926F00949AC0 /* OptionTitleCell.swift */; };
+		23C52A5B288C94B800949AC0 /* BannerAdSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A5A288C94B800949AC0 /* BannerAdSectionController.swift */; };
+		23C52A5D288C94CB00949AC0 /* BannerAdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A5C288C94CB00949AC0 /* BannerAdCell.swift */; };
+		23C52A60288CC90500949AC0 /* FittingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C52A5F288CC90500949AC0 /* FittingData.swift */; };
 		AB7184BBA74FA8D8D7713CEC /* Pods_AR_PutterFitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2079913F523334FA54879694 /* Pods_AR_PutterFitter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1ADCDB144967B7AA3ABA09E0 /* Pods-AR.PutterFitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR.PutterFitter.debug.xcconfig"; path = "Target Support Files/Pods-AR.PutterFitter/Pods-AR.PutterFitter.debug.xcconfig"; sourceTree = "<group>"; };
 		2079913F523334FA54879694 /* Pods_AR_PutterFitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_PutterFitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23267962288CDB7500E98E42 /* Kanit-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Black.ttf"; sourceTree = "<group>"; };
+		23267964288CE46600E98E42 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		23267966288CE48600E98E42 /* LoadingSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSectionController.swift; sourceTree = "<group>"; };
+		23267968288CE69100E98E42 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		2326796A288CE74400E98E42 /* ButtonSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSectionController.swift; sourceTree = "<group>"; };
 		239ACA4D288C149900D87763 /* AR.PutterFitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AR.PutterFitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239ACA50288C149900D87763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		239ACA52288C149900D87763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		239ACA54288C149900D87763 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		239ACA54288C149900D87763 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		239ACA59288C149B00D87763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		239ACA5E288C149B00D87763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239ACA64288C164800D87763 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		239ACA68288C178E00D87763 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		239ACA6A288C179B00D87763 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		23C52A40288C211D00949AC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		23C52A44288C2D7D00949AC0 /* Kanit-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Medium.ttf"; sourceTree = "<group>"; };
+		23C52A46288C2DA500949AC0 /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
+		23C52A48288C2DFA00949AC0 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
+		23C52A4C288C328D00949AC0 /* OptionSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSectionController.swift; sourceTree = "<group>"; };
+		23C52A4E288C342F00949AC0 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		23C52A51288C859500949AC0 /* ProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
+		23C52A54288C85CA00949AC0 /* ProgressSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSectionController.swift; sourceTree = "<group>"; };
+		23C52A56288C925800949AC0 /* OptionTitleSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTitleSectionController.swift; sourceTree = "<group>"; };
+		23C52A58288C926F00949AC0 /* OptionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTitleCell.swift; sourceTree = "<group>"; };
+		23C52A5A288C94B800949AC0 /* BannerAdSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdSectionController.swift; sourceTree = "<group>"; };
+		23C52A5C288C94CB00949AC0 /* BannerAdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdCell.swift; sourceTree = "<group>"; };
+		23C52A5F288CC90500949AC0 /* FittingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittingData.swift; sourceTree = "<group>"; };
 		823C970B2D36259C6E8C9371 /* Pods-AR.PutterFitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR.PutterFitter.release.xcconfig"; path = "Target Support Files/Pods-AR.PutterFitter/Pods-AR.PutterFitter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,11 +109,14 @@
 		239ACA4F288C149900D87763 /* AR.PutterFitter */ = {
 			isa = PBXGroup;
 			children = (
+				23C52A5E288CC8F700949AC0 /* Data */,
+				23C52A53288C859E00949AC0 /* SectionControllers */,
+				23C52A50288C857500949AC0 /* Cells */,
+				23C52A4A288C325900949AC0 /* Features */,
 				239ACA66288C176700D87763 /* Components */,
 				239ACA64288C164800D87763 /* LaunchScreen.storyboard */,
 				239ACA50288C149900D87763 /* AppDelegate.swift */,
 				239ACA52288C149900D87763 /* SceneDelegate.swift */,
-				239ACA54288C149900D87763 /* ViewController.swift */,
 				239ACA59288C149B00D87763 /* Assets.xcassets */,
 				23C52A40288C211D00949AC0 /* GoogleService-Info.plist */,
 				239ACA5E288C149B00D87763 /* Info.plist */,
@@ -90,6 +127,8 @@
 		239ACA66288C176700D87763 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				23C52A43288C2D5E00949AC0 /* Helper */,
+				23C52A42288C2D5600949AC0 /* Fonts */,
 				239ACA67288C177400D87763 /* Extensions */,
 			);
 			path = Components;
@@ -102,6 +141,74 @@
 				239ACA6A288C179B00D87763 /* StringExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		23C52A42288C2D5600949AC0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				23267962288CDB7500E98E42 /* Kanit-Black.ttf */,
+				23C52A46288C2DA500949AC0 /* Kanit-Regular.ttf */,
+				23C52A44288C2D7D00949AC0 /* Kanit-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		23C52A43288C2D5E00949AC0 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				23C52A48288C2DFA00949AC0 /* FontHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		23C52A4A288C325900949AC0 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				23C52A4B288C326500949AC0 /* Main */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		23C52A4B288C326500949AC0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				239ACA54288C149900D87763 /* OptionsViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		23C52A50288C857500949AC0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				23C52A4E288C342F00949AC0 /* OptionCell.swift */,
+				23C52A51288C859500949AC0 /* ProgressCell.swift */,
+				23C52A58288C926F00949AC0 /* OptionTitleCell.swift */,
+				23C52A5C288C94CB00949AC0 /* BannerAdCell.swift */,
+				23267964288CE46600E98E42 /* LoadingCell.swift */,
+				23267968288CE69100E98E42 /* ButtonCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		23C52A53288C859E00949AC0 /* SectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				23C52A4C288C328D00949AC0 /* OptionSectionController.swift */,
+				23C52A54288C85CA00949AC0 /* ProgressSectionController.swift */,
+				23C52A56288C925800949AC0 /* OptionTitleSectionController.swift */,
+				23C52A5A288C94B800949AC0 /* BannerAdSectionController.swift */,
+				23267966288CE48600E98E42 /* LoadingSectionController.swift */,
+				2326796A288CE74400E98E42 /* ButtonSectionController.swift */,
+			);
+			path = SectionControllers;
+			sourceTree = "<group>";
+		};
+		23C52A5E288CC8F700949AC0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				23C52A5F288CC90500949AC0 /* FittingData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		7E58C334AF470484D783513C /* Pods */ = {
@@ -173,7 +280,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23267963288CDB7500E98E42 /* Kanit-Black.ttf in Resources */,
+				23C52A47288C2DA500949AC0 /* Kanit-Regular.ttf in Resources */,
 				239ACA65288C164800D87763 /* LaunchScreen.storyboard in Resources */,
+				23C52A45288C2D7D00949AC0 /* Kanit-Medium.ttf in Resources */,
 				239ACA5A288C149B00D87763 /* Assets.xcassets in Resources */,
 				23C52A41288C211D00949AC0 /* GoogleService-Info.plist in Resources */,
 			);
@@ -228,10 +338,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				239ACA55288C149900D87763 /* ViewController.swift in Sources */,
+				23C52A49288C2DFA00949AC0 /* FontHelper.swift in Sources */,
+				239ACA55288C149900D87763 /* OptionsViewController.swift in Sources */,
+				23C52A60288CC90500949AC0 /* FittingData.swift in Sources */,
 				239ACA51288C149900D87763 /* AppDelegate.swift in Sources */,
 				239ACA6B288C179B00D87763 /* StringExtensions.swift in Sources */,
+				23267967288CE48600E98E42 /* LoadingSectionController.swift in Sources */,
+				23C52A5B288C94B800949AC0 /* BannerAdSectionController.swift in Sources */,
+				23C52A4D288C328D00949AC0 /* OptionSectionController.swift in Sources */,
+				23C52A57288C925800949AC0 /* OptionTitleSectionController.swift in Sources */,
+				23C52A4F288C342F00949AC0 /* OptionCell.swift in Sources */,
+				23C52A59288C926F00949AC0 /* OptionTitleCell.swift in Sources */,
+				23267969288CE69100E98E42 /* ButtonCell.swift in Sources */,
+				2326796B288CE74400E98E42 /* ButtonSectionController.swift in Sources */,
+				23267965288CE46600E98E42 /* LoadingCell.swift in Sources */,
+				23C52A55288C85CA00949AC0 /* ProgressSectionController.swift in Sources */,
+				23C52A5D288C94CB00949AC0 /* BannerAdCell.swift in Sources */,
 				239ACA53288C149900D87763 /* SceneDelegate.swift in Sources */,
+				23C52A52288C859500949AC0 /* ProgressCell.swift in Sources */,
 				239ACA69288C178E00D87763 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

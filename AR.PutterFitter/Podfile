@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'AR.PutterFitter' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for AR.PutterFitter
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'IGListKit', '~> 4.0.0'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseCrashlytics'
+  pod 'FirebasePerformance'
+  pod 'FirebaseCore'
+  pod 'FirebaseFirestore'
+  pod 'Google-Mobile-Ads-SDK'
+
+end

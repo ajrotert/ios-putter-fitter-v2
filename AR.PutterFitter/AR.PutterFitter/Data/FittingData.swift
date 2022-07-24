@@ -26,7 +26,7 @@ class FittingData {
     }()
     
     private static var AlignmentCharacteristic: FittingCharacteristic = {
-        return FittingCharacteristic(options: [FittingOption(name: "Struggles with Alignment", icon: "struggles"), FittingOption(name: "Good with Alignment", icon: "good")], title: "Please select your putting alignment: ")
+        return FittingCharacteristic(options: [FittingOption(name: "Struggles with Alignment", icon: "Struggles"), FittingOption(name: "Good with Alignment", icon: "Good")], title: "Please select your putting alignment: ")
     }()
     
     static func GetCharacteristicOptions() -> [FittingCharacteristic] {

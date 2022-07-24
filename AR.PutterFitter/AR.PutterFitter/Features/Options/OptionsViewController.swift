@@ -123,9 +123,8 @@ class OptionsViewController: UIViewController {
     }
     
     private func next(selectedOption: String) {
+        self.updateUserWeight(selectedOption: selectedOption, index: self.index)
         self.index += 1
-
-        self.userWeights.selectedOptions.append(selectedOption)
 
         if self.index < (self.fittingDataOptions?.count ?? 0) {
             self.showCharacteristic(index: index)
@@ -135,8 +134,8 @@ class OptionsViewController: UIViewController {
     }
     
     private func back() {
+        self.updateUserWeight(selectedOption: "", index: self.index)
         self.index -= 1
-        self.userWeights.selectedOptions.removeLast()
 
         if self.index < (self.fittingDataOptions?.count ?? 0) {
             self.showCharacteristic(index: index)
@@ -153,7 +152,7 @@ class OptionsViewController: UIViewController {
         
         var results = [ResultsDiffable]()
         
-        service.getMatches(userWeights: self.userWeights.selectedOptions) { putterDataMatches, title in
+        service.getMatches(userWeights: self.userWeights) { putterDataMatches, title in
             
             let group = DispatchGroup()
             
@@ -191,6 +190,17 @@ class OptionsViewController: UIViewController {
         }
         
         return sections
+    }
+    
+    private func updateUserWeight(selectedOption: String, index: Int) {
+        switch index {
+        case 0: self.userWeights.selectedDominantOption = selectedOption; break
+        case 1: self.userWeights.selectedPathOption = selectedOption; break
+        case 2: self.userWeights.selectedAccuracyOption = selectedOption; break
+        case 3: self.userWeights.selectedDistanceOption = selectedOption; break
+        case 4: self.userWeights.selectedAlignmentOption = selectedOption; break
+        default: break
+        }
     }
     
     private func openUrl(website: String?) {

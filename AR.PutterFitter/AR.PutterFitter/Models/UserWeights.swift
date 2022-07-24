@@ -8,5 +8,9 @@
 import Foundation
 
 class UserWeights {
-    public var selectedOptions: [String] = [String]()
+    public var selectedDominantOption: String?
+    public var selectedPathOption: String?
+    public var selectedAccuracyOption: String?
+    public var selectedDistanceOption: String?
+    public var selectedAlignmentOption: String?
 }

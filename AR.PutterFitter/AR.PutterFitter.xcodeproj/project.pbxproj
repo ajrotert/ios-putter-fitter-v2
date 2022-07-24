@@ -16,6 +16,8 @@
 		2326796F288CEE6B00E98E42 /* LabelSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326796E288CEE6B00E98E42 /* LabelSectionController.swift */; };
 		23267971288CF03F00E98E42 /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267970288CF03F00E98E42 /* ResultsCell.swift */; };
 		23267973288CF17000E98E42 /* ResultSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267972288CF17000E98E42 /* ResultSectionController.swift */; };
+		236C9339288DE3E4007CFA4F /* PutterCharacteristics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236C9338288DE3E4007CFA4F /* PutterCharacteristics.swift */; };
+		236C933B288DEF11007CFA4F /* FittingHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236C933A288DEF11007CFA4F /* FittingHeap.swift */; };
 		239ACA51288C149900D87763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA50288C149900D87763 /* AppDelegate.swift */; };
 		239ACA53288C149900D87763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA52288C149900D87763 /* SceneDelegate.swift */; };
 		239ACA55288C149900D87763 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA54288C149900D87763 /* OptionsViewController.swift */; };
@@ -55,6 +57,8 @@
 		2326796E288CEE6B00E98E42 /* LabelSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSectionController.swift; sourceTree = "<group>"; };
 		23267970288CF03F00E98E42 /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		23267972288CF17000E98E42 /* ResultSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSectionController.swift; sourceTree = "<group>"; };
+		236C9338288DE3E4007CFA4F /* PutterCharacteristics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutterCharacteristics.swift; sourceTree = "<group>"; };
+		236C933A288DEF11007CFA4F /* FittingHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittingHeap.swift; sourceTree = "<group>"; };
 		239ACA4D288C149900D87763 /* AR.PutterFitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AR.PutterFitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239ACA50288C149900D87763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		239ACA52288C149900D87763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				23BAF6EA288D7A9C005A72CC /* UserWeights.swift */,
 				23BAF6EE288D7DB3005A72CC /* PutterData.swift */,
+				236C9338288DE3E4007CFA4F /* PutterCharacteristics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				23C52A5F288CC90500949AC0 /* FittingData.swift */,
+				236C933A288DEF11007CFA4F /* FittingHeap.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -392,11 +398,13 @@
 				23BAF6F4288D81BA005A72CC /* PutterFittingService.swift in Sources */,
 				23BAF6EF288D7DB3005A72CC /* PutterData.swift in Sources */,
 				23C52A59288C926F00949AC0 /* OptionTitleCell.swift in Sources */,
+				236C9339288DE3E4007CFA4F /* PutterCharacteristics.swift in Sources */,
 				23267969288CE69100E98E42 /* ButtonCell.swift in Sources */,
 				2326796B288CE74400E98E42 /* ButtonSectionController.swift in Sources */,
 				23BAF6EB288D7A9C005A72CC /* UserWeights.swift in Sources */,
 				23267965288CE46600E98E42 /* LoadingCell.swift in Sources */,
 				23C52A55288C85CA00949AC0 /* ProgressSectionController.swift in Sources */,
+				236C933B288DEF11007CFA4F /* FittingHeap.swift in Sources */,
 				23267971288CF03F00E98E42 /* ResultsCell.swift in Sources */,
 				23C52A5D288C94CB00949AC0 /* BannerAdCell.swift in Sources */,
 				23267973288CF17000E98E42 /* ResultSectionController.swift in Sources */,

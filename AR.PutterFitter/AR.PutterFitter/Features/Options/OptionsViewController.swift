@@ -91,9 +91,10 @@ class OptionsViewController: UIViewController {
         self.objects.removeAll()
         
         self.objects.append(BannerAdDiffable(rootViewController: self))
-        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingData?.count ?? 0, 1)), count: ""))
+        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingData?.count ?? 0, 1)), count: "complete"))
         
-        self.objects.append(LoadingDiffable())
+//        self.objects.append(LoadingDiffable())
+        self.objects.append(LabelDiffable(text: "3 Results - (83.33% Match)"))
         
         self.adapter.performUpdates(animated: true)
         self.adapter.reloadData()
@@ -150,6 +151,8 @@ extension OptionsViewController : ListAdapterDataSource {
             return LoadingSectionController()
         } else if object is BackDiffable {
             return BackButtonSectionController(delegate: self)
+        } else if object is LabelDiffable {
+            return LabelSectionController()
         }
         
         return ListSectionController()

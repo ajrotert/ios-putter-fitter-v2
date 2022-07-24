@@ -56,10 +56,10 @@ class OptionsViewController: UIViewController {
             make.edges.equalTo(self.view)
         }
         
-        self.load()
+        self.start()
     }
     
-    private func load() {
+    private func start() {
         self.fittingData = FittingData.GetCharacteristicOptions()
         self.index = 0
         self.showCharacteristic(index: self.index)
@@ -80,7 +80,7 @@ class OptionsViewController: UIViewController {
         }
         
         if index > 0 {
-            self.objects.append(BackDiffable())
+            self.objects.append(ButtonDiffable(buttonText: "Go Back"))
         }
         
         self.adapter.performUpdates(animated: false)
@@ -91,10 +91,29 @@ class OptionsViewController: UIViewController {
         self.objects.removeAll()
         
         self.objects.append(BannerAdDiffable(rootViewController: self))
-        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingData?.count ?? 0, 1)), count: "complete"))
+        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingData?.count ?? 0, 1)), count: "loading"))
         
-//        self.objects.append(LoadingDiffable())
+        self.objects.append(LoadingDiffable())
+        
+        self.loadData()
+        
+        self.adapter.performUpdates(animated: true)
+        self.adapter.reloadData()
+    }
+    
+    private func showResults(results: [ResultsDiffable]) {
+        self.objects.removeAll()
+        
+        self.objects.append(BannerAdDiffable(rootViewController: self))
+        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingData?.count ?? 0, 1)), count: "completed"))
+        
         self.objects.append(LabelDiffable(text: "3 Results - (83.33% Match)"))
+
+        for result in results {
+            self.objects.append(result)
+        }
+        
+        self.objects.append(ButtonDiffable(buttonText: "Restart"))
         
         self.adapter.performUpdates(animated: true)
         self.adapter.reloadData()
@@ -117,6 +136,36 @@ class OptionsViewController: UIViewController {
             self.showCharacteristic(index: index)
         } else {
             self.showLoading()
+        }
+    }
+    
+    private func restart() {
+        self.index = 0
+        
+        if self.index < (self.fittingData?.count ?? 0) {
+            self.showCharacteristic(index: index)
+        } else {
+            self.showLoading()
+        }
+    }
+    
+    private func loadData() {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: NSURL(string: "https://www.scottycameron.com/media/17454/product_pages__0009_2020-select-newport-2-back.jpg")! as URL) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        
+                        if let self = self {
+                            self.showResults(results: [
+                                ResultsDiffable(manufacturerText: "Scotty Cameron", modelText: "Newport 2", putterImage: image),
+                                ResultsDiffable(manufacturerText: "Scotty Cameron", modelText: "Newport 2", putterImage: image),
+                                ResultsDiffable(manufacturerText: "Scotty Cameron", modelText: "Newport 2", putterImage: image)
+                            ])
+                        }
+                        
+                    }
+                }
+            }
         }
     }
     
@@ -149,10 +198,12 @@ extension OptionsViewController : ListAdapterDataSource {
             return BannerAdSectionController()
         } else if object is LoadingDiffable {
             return LoadingSectionController()
-        } else if object is BackDiffable {
-            return BackButtonSectionController(delegate: self)
+        } else if object is ButtonDiffable {
+            return ButtonSectionController(delegate: self)
         } else if object is LabelDiffable {
             return LabelSectionController()
+        } else if object is ResultsDiffable {
+            return ResultSectionController(delegate: self)
         }
         
         return ListSectionController()
@@ -167,8 +218,17 @@ extension OptionsViewController : OptionSectionControllerDelegate {
         self.next()
     }
 }
-extension OptionsViewController : BackButtonSectionControllerDelegate {
-    func backSelected() {
-        self.back()
+extension OptionsViewController : ButtonSectionControllerDelegate {
+    func buttonSelected(buttonText: String) {
+        if buttonText == "Restart" {
+            self.restart()
+        } else {
+            self.back()
+        }
+    }
+}
+extension OptionsViewController : ResultSectionControllerDelegate {
+    func resultSelected() {
+        
     }
 }

@@ -20,7 +20,6 @@ class ButtonCell: UICollectionViewCell {
         label.font = FontHelper.blackFont(size: 14)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Go Back"
         return label
     }()
     
@@ -64,7 +63,8 @@ class ButtonCell: UICollectionViewCell {
         cellTappedBlock?()
     }
     
-    public func update(cellTappedBlock: (() -> ())?){
+    public func update(buttonText: String?, cellTappedBlock: (() -> ())?) {
+        self.labelText.text = buttonText
         self.cellTappedBlock = cellTappedBlock
     }
 }

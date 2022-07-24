@@ -8,22 +8,22 @@
 import Foundation
 import IGListKit
 
-protocol BackButtonSectionControllerDelegate {
-    func backSelected()
+protocol ButtonSectionControllerDelegate {
+    func buttonSelected(buttonText: String)
 }
 
-class BackButtonSectionController: ListSectionController {
-    var object: BackDiffable?
-    var delegate: BackButtonSectionControllerDelegate?
+class ButtonSectionController: ListSectionController {
+    var object: ButtonDiffable?
+    var delegate: ButtonSectionControllerDelegate?
     
     override func didUpdate(to object: Any) {
-      guard let object = object as? BackDiffable else {
+      guard let object = object as? ButtonDiffable else {
         return
       }
         self.object = object
     }
     
-    public init(delegate: BackButtonSectionControllerDelegate?) {
+    public init(delegate: ButtonSectionControllerDelegate?) {
         self.delegate = delegate
     }
     
@@ -40,9 +40,9 @@ class BackButtonSectionController: ListSectionController {
         
         weak var wself = self
         
-        cell.update() {
+        cell.update(buttonText: self.object?.buttonText) {
             if let sself = wself {
-                sself.delegate?.backSelected()
+                sself.delegate?.buttonSelected(buttonText: sself.object?.buttonText ?? "")
             }
         }
         
@@ -55,10 +55,12 @@ class BackButtonSectionController: ListSectionController {
     }
 }
 
-class BackDiffable: ListDiffable {
+class ButtonDiffable: ListDiffable {
     private var identifier: String = UUID().uuidString
 
-    init() {
+    public var buttonText: String?
+    init(buttonText: String?) {
+        self.buttonText = buttonText
     }
     
     func diffIdentifier() -> NSObjectProtocol {
@@ -66,7 +68,7 @@ class BackDiffable: ListDiffable {
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
-      guard let object = object as? BackDiffable else {
+      guard let object = object as? ButtonDiffable else {
          return false
       }
         return self.identifier == object.identifier

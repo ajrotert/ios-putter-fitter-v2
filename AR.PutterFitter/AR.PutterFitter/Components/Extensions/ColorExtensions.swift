@@ -28,4 +28,5 @@ extension UIColor {
         
     static let primaryColor: UIColor = UIColor(hexString: "#4F7942")
     static let backgroundColor: UIColor = UIColor(hexString: "#f8f8f8")
+    static let textColor: UIColor = .white
 }

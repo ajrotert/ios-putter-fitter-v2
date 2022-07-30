@@ -112,6 +112,30 @@ class RemotePutterFittingService {
         return dataList
     }
     
+    private func filterPutterMatches(matches: [PutterData]) -> [PutterData] {
+        if matches.count <= 3 {
+            return matches
+        }
+        
+        let newMatches = matches.filter({ $0.manufacturer?.lowercased() != "ping" })
+        
+        if newMatches.count == 0 {
+            return matches
+        }
+        
+        if newMatches.count <= 3 {
+            return newMatches
+        }
+        
+        let finalMatches = newMatches.filter({ $0.manufacturer?.lowercased() != "scotty cameron" })
+        
+        if finalMatches.count == 0 {
+            return newMatches
+        }
+        
+        return finalMatches
+    }
+    
     private func calculateMatching(data: PutterData?) -> Float {
         
         guard let data = data else {
@@ -152,10 +176,11 @@ extension RemotePutterFittingService : PutterFittingService {
                 }
             }
             
-            let res = self.calculatePutterMatches(putterData: putterData, userWeights: weights)
-            let match = self.calculateMatching(data: res.first)
+            let results = self.calculatePutterMatches(putterData: putterData, userWeights: weights)
+            let filteredResults = self.filterPutterMatches(matches: results)
+            let match = self.calculateMatching(data: filteredResults.first)
             
-            success?(res, "\(res.count) Result\(putterData.count > 1 ? "s" : "") - (\(String(format: "%.2f", match))% Match)")
+            success?(filteredResults, "\(filteredResults.count) Result\(putterData.count > 1 ? "s" : "") - (\(String(format: "%.2f", match))% Match)")
         } failure: { error in
             failure?(error)
         }

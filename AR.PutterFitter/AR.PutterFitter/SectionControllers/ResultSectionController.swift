@@ -9,7 +9,7 @@ import Foundation
 import IGListKit
 
 protocol ResultSectionControllerDelegate {
-    func resultSelected()
+    func resultSelected(website: String?)
 }
 
 class ResultSectionController: ListSectionController {
@@ -43,7 +43,7 @@ class ResultSectionController: ListSectionController {
         cell.update(manufacturerText: self.object?.manufacturerText, modelText: self.object?.modelText, putterImage: self.object?.putterImage, cellTappedBlock: {
             
             if let sself = wself {
-                sself.delegate?.resultSelected()
+                sself.delegate?.resultSelected(website: self.object?.website)
             }
         })
         
@@ -59,12 +59,15 @@ class ResultSectionController: ListSectionController {
 class ResultsDiffable: ListDiffable {
     private var identifier: String = UUID().uuidString
 
-    public var manufacturerText: String
-    public var modelText: String
+    public var manufacturerText: String?
+    public var modelText: String?
+    public var website: String?
     public var putterImage: UIImage
-    init(manufacturerText: String, modelText: String, putterImage: UIImage) {
+
+    init(manufacturerText: String?, modelText: String?, website: String?, putterImage: UIImage) {
         self.manufacturerText = manufacturerText
         self.modelText = modelText
+        self.website = website
         self.putterImage = putterImage
     }
     

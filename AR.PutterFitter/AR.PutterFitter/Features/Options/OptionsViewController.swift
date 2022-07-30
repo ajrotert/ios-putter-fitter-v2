@@ -34,8 +34,10 @@ class OptionsViewController: UIViewController {
         workingRangeSize: 0)
       }()
     
-    private var fittingData: [FittingCharacteristic]?
+    private var fittingDataOptions: [FittingCharacteristic]?
     private var index: Int = 0
+    private var userWeights = UserWeights()
+    private var service: PutterFittingService = RemotePutterFittingService(service: RemotePutterDataService())
     
     private var objects: [ListDiffable] = [ListDiffable]()
     
@@ -60,8 +62,9 @@ class OptionsViewController: UIViewController {
     }
     
     private func start() {
-        self.fittingData = FittingData.GetCharacteristicOptions()
+        self.fittingDataOptions = FittingData.GetCharacteristicOptions()
         self.index = 0
+        self.userWeights = UserWeights()
         self.showCharacteristic(index: self.index)
     }
     
@@ -69,13 +72,13 @@ class OptionsViewController: UIViewController {
         self.objects.removeAll()
         
         self.objects.append(BannerAdDiffable(rootViewController: self))
-        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingData?.count ?? 0, 1)), count: "\(index+1) of \(self.fittingData?.count ?? 0)"))
+        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingDataOptions?.count ?? 0, 1)), count: "\(index+1) of \(self.fittingDataOptions?.count ?? 0)"))
         
-        guard index >= 0 && index < self.fittingData?.count ?? 0 else {
+        guard index >= 0 && index < self.fittingDataOptions?.count ?? 0 else {
             return
         }
         
-        for section in self.getSections(characteristic: self.fittingData![index]) {
+        for section in self.getSections(characteristic: self.fittingDataOptions![index]) {
             self.objects.append(section)
         }
         
@@ -91,7 +94,7 @@ class OptionsViewController: UIViewController {
         self.objects.removeAll()
         
         self.objects.append(BannerAdDiffable(rootViewController: self))
-        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingData?.count ?? 0, 1)), count: "loading"))
+        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingDataOptions?.count ?? 0, 1)), count: "loading"))
         
         self.objects.append(LoadingDiffable())
         
@@ -101,13 +104,13 @@ class OptionsViewController: UIViewController {
         self.adapter.reloadData()
     }
     
-    private func showResults(results: [ResultsDiffable]) {
+    private func showResults(results: [ResultsDiffable], title: String) {
         self.objects.removeAll()
         
         self.objects.append(BannerAdDiffable(rootViewController: self))
-        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingData?.count ?? 0, 1)), count: "completed"))
+        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingDataOptions?.count ?? 0, 1)), count: "completed"))
         
-        self.objects.append(LabelDiffable(text: "3 Results - (83.33% Match)"))
+        self.objects.append(LabelDiffable(text: title))
 
         for result in results {
             self.objects.append(result)
@@ -119,10 +122,11 @@ class OptionsViewController: UIViewController {
         self.adapter.reloadData()
     }
     
-    private func next() {
+    private func next(selectedOption: String) {
+        self.updateUserWeight(selectedOption: selectedOption, index: self.index)
         self.index += 1
 
-        if self.index < (self.fittingData?.count ?? 0) {
+        if self.index < (self.fittingDataOptions?.count ?? 0) {
             self.showCharacteristic(index: index)
         } else {
             self.showLoading()
@@ -130,9 +134,10 @@ class OptionsViewController: UIViewController {
     }
     
     private func back() {
+        self.updateUserWeight(selectedOption: "", index: self.index)
         self.index -= 1
 
-        if self.index < (self.fittingData?.count ?? 0) {
+        if self.index < (self.fittingDataOptions?.count ?? 0) {
             self.showCharacteristic(index: index)
         } else {
             self.showLoading()
@@ -140,31 +145,38 @@ class OptionsViewController: UIViewController {
     }
     
     private func restart() {
-        self.index = 0
-        
-        if self.index < (self.fittingData?.count ?? 0) {
-            self.showCharacteristic(index: index)
-        } else {
-            self.showLoading()
-        }
+        start()
     }
     
     private func loadData() {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: NSURL(string: "https://www.scottycameron.com/media/17454/product_pages__0009_2020-select-newport-2-back.jpg")! as URL) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        
-                        if let self = self {
-                            self.showResults(results: [
-                                ResultsDiffable(manufacturerText: "Scotty Cameron", modelText: "Newport 2", putterImage: image),
-                                ResultsDiffable(manufacturerText: "Scotty Cameron", modelText: "Newport 2", putterImage: image),
-                                ResultsDiffable(manufacturerText: "Scotty Cameron", modelText: "Newport 2", putterImage: image)
-                            ])
+        
+        var results = [ResultsDiffable]()
+        
+        service.getMatches(userWeights: self.userWeights) { putterDataMatches, title in
+            
+            let group = DispatchGroup()
+            
+            for putterDataMatch in putterDataMatches {
+                if let photoUrl = putterDataMatch.photoUrl, let url = URL(string: photoUrl) {
+                    group.enter()
+                    DispatchQueue.global().async {
+                        if let data = try? Data(contentsOf: url),
+                           let image = UIImage(data: data){
+                            results.append(ResultsDiffable(manufacturerText: putterDataMatch.manufacturer, modelText: putterDataMatch.model, website: putterDataMatch.website, putterImage: image))
                         }
-                        
+                        group.leave()
                     }
                 }
+
+            }
+            
+            group.notify(queue: .main) {
+                self.showResults(results: results, title: title)
+            }
+            
+        } failure: { error in
+            if let error = error {
+                print(error)
             }
         }
     }
@@ -178,6 +190,23 @@ class OptionsViewController: UIViewController {
         }
         
         return sections
+    }
+    
+    private func updateUserWeight(selectedOption: String, index: Int) {
+        switch index {
+        case 0: self.userWeights.selectedDominantOption = selectedOption; break
+        case 1: self.userWeights.selectedPathOption = selectedOption; break
+        case 2: self.userWeights.selectedAccuracyOption = selectedOption; break
+        case 3: self.userWeights.selectedDistanceOption = selectedOption; break
+        case 4: self.userWeights.selectedAlignmentOption = selectedOption; break
+        default: break
+        }
+    }
+    
+    private func openUrl(website: String?) {
+        if let website = website, let url = URL(string: website) {
+            UIApplication.shared.open(url)
+        }
     }
 }
 extension OptionsViewController : ListAdapterDataSource {
@@ -214,8 +243,8 @@ extension OptionsViewController : ListAdapterDataSource {
     }
 }
 extension OptionsViewController : OptionSectionControllerDelegate {
-    func optionSelected() {
-        self.next()
+    func optionSelected(selectedOption: String) {
+        self.next(selectedOption: selectedOption)
     }
 }
 extension OptionsViewController : ButtonSectionControllerDelegate {
@@ -228,7 +257,7 @@ extension OptionsViewController : ButtonSectionControllerDelegate {
     }
 }
 extension OptionsViewController : ResultSectionControllerDelegate {
-    func resultSelected() {
-        
+    func resultSelected(website: String?) {
+        openUrl(website: website)
     }
 }

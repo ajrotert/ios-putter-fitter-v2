@@ -16,6 +16,8 @@
 		2326796F288CEE6B00E98E42 /* LabelSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326796E288CEE6B00E98E42 /* LabelSectionController.swift */; };
 		23267971288CF03F00E98E42 /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267970288CF03F00E98E42 /* ResultsCell.swift */; };
 		23267973288CF17000E98E42 /* ResultSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267972288CF17000E98E42 /* ResultSectionController.swift */; };
+		236C9339288DE3E4007CFA4F /* PutterCharacteristics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236C9338288DE3E4007CFA4F /* PutterCharacteristics.swift */; };
+		236C933B288DEF11007CFA4F /* FittingHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236C933A288DEF11007CFA4F /* FittingHeap.swift */; };
 		239ACA51288C149900D87763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA50288C149900D87763 /* AppDelegate.swift */; };
 		239ACA53288C149900D87763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA52288C149900D87763 /* SceneDelegate.swift */; };
 		239ACA55288C149900D87763 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA54288C149900D87763 /* OptionsViewController.swift */; };
@@ -23,6 +25,10 @@
 		239ACA65288C164800D87763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 239ACA64288C164800D87763 /* LaunchScreen.storyboard */; };
 		239ACA69288C178E00D87763 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA68288C178E00D87763 /* ColorExtensions.swift */; };
 		239ACA6B288C179B00D87763 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239ACA6A288C179B00D87763 /* StringExtensions.swift */; };
+		23BAF6EB288D7A9C005A72CC /* UserWeights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAF6EA288D7A9C005A72CC /* UserWeights.swift */; };
+		23BAF6EF288D7DB3005A72CC /* PutterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAF6EE288D7DB3005A72CC /* PutterData.swift */; };
+		23BAF6F2288D7EF5005A72CC /* PutterDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAF6F1288D7EF5005A72CC /* PutterDataService.swift */; };
+		23BAF6F4288D81BA005A72CC /* PutterFittingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAF6F3288D81BA005A72CC /* PutterFittingService.swift */; };
 		23C52A41288C211D00949AC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23C52A40288C211D00949AC0 /* GoogleService-Info.plist */; };
 		23C52A45288C2D7D00949AC0 /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23C52A44288C2D7D00949AC0 /* Kanit-Medium.ttf */; };
 		23C52A47288C2DA500949AC0 /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23C52A46288C2DA500949AC0 /* Kanit-Regular.ttf */; };
@@ -51,6 +57,8 @@
 		2326796E288CEE6B00E98E42 /* LabelSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSectionController.swift; sourceTree = "<group>"; };
 		23267970288CF03F00E98E42 /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		23267972288CF17000E98E42 /* ResultSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSectionController.swift; sourceTree = "<group>"; };
+		236C9338288DE3E4007CFA4F /* PutterCharacteristics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutterCharacteristics.swift; sourceTree = "<group>"; };
+		236C933A288DEF11007CFA4F /* FittingHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittingHeap.swift; sourceTree = "<group>"; };
 		239ACA4D288C149900D87763 /* AR.PutterFitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AR.PutterFitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239ACA50288C149900D87763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		239ACA52288C149900D87763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +68,10 @@
 		239ACA64288C164800D87763 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		239ACA68288C178E00D87763 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		239ACA6A288C179B00D87763 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		23BAF6EA288D7A9C005A72CC /* UserWeights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWeights.swift; sourceTree = "<group>"; };
+		23BAF6EE288D7DB3005A72CC /* PutterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutterData.swift; sourceTree = "<group>"; };
+		23BAF6F1288D7EF5005A72CC /* PutterDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutterDataService.swift; sourceTree = "<group>"; };
+		23BAF6F3288D81BA005A72CC /* PutterFittingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutterFittingService.swift; sourceTree = "<group>"; };
 		23C52A40288C211D00949AC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		23C52A44288C2D7D00949AC0 /* Kanit-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Medium.ttf"; sourceTree = "<group>"; };
 		23C52A46288C2DA500949AC0 /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
@@ -117,6 +129,8 @@
 		239ACA4F288C149900D87763 /* AR.PutterFitter */ = {
 			isa = PBXGroup;
 			children = (
+				23BAF6F0288D7EE3005A72CC /* RemoteService */,
+				23BAF6E9288D7A82005A72CC /* Models */,
 				23C52A5E288CC8F700949AC0 /* Data */,
 				23C52A53288C859E00949AC0 /* SectionControllers */,
 				23C52A50288C857500949AC0 /* Cells */,
@@ -149,6 +163,25 @@
 				239ACA6A288C179B00D87763 /* StringExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		23BAF6E9288D7A82005A72CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				23BAF6EA288D7A9C005A72CC /* UserWeights.swift */,
+				23BAF6EE288D7DB3005A72CC /* PutterData.swift */,
+				236C9338288DE3E4007CFA4F /* PutterCharacteristics.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		23BAF6F0288D7EE3005A72CC /* RemoteService */ = {
+			isa = PBXGroup;
+			children = (
+				23BAF6F1288D7EF5005A72CC /* PutterDataService.swift */,
+				23BAF6F3288D81BA005A72CC /* PutterFittingService.swift */,
+			);
+			path = RemoteService;
 			sourceTree = "<group>";
 		};
 		23C52A42288C2D5600949AC0 /* Fonts */ = {
@@ -219,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				23C52A5F288CC90500949AC0 /* FittingData.swift */,
+				236C933A288DEF11007CFA4F /* FittingHeap.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -361,17 +395,23 @@
 				23C52A4D288C328D00949AC0 /* OptionSectionController.swift in Sources */,
 				23C52A57288C925800949AC0 /* OptionTitleSectionController.swift in Sources */,
 				23C52A4F288C342F00949AC0 /* OptionCell.swift in Sources */,
+				23BAF6F4288D81BA005A72CC /* PutterFittingService.swift in Sources */,
+				23BAF6EF288D7DB3005A72CC /* PutterData.swift in Sources */,
 				23C52A59288C926F00949AC0 /* OptionTitleCell.swift in Sources */,
+				236C9339288DE3E4007CFA4F /* PutterCharacteristics.swift in Sources */,
 				23267969288CE69100E98E42 /* ButtonCell.swift in Sources */,
 				2326796B288CE74400E98E42 /* ButtonSectionController.swift in Sources */,
+				23BAF6EB288D7A9C005A72CC /* UserWeights.swift in Sources */,
 				23267965288CE46600E98E42 /* LoadingCell.swift in Sources */,
 				23C52A55288C85CA00949AC0 /* ProgressSectionController.swift in Sources */,
+				236C933B288DEF11007CFA4F /* FittingHeap.swift in Sources */,
 				23267971288CF03F00E98E42 /* ResultsCell.swift in Sources */,
 				23C52A5D288C94CB00949AC0 /* BannerAdCell.swift in Sources */,
 				23267973288CF17000E98E42 /* ResultSectionController.swift in Sources */,
 				239ACA53288C149900D87763 /* SceneDelegate.swift in Sources */,
 				23C52A52288C859500949AC0 /* ProgressCell.swift in Sources */,
 				2326796D288CEE2300E98E42 /* LabelCell.swift in Sources */,
+				23BAF6F2288D7EF5005A72CC /* PutterDataService.swift in Sources */,
 				239ACA69288C178E00D87763 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

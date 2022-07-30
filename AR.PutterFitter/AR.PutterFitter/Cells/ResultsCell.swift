@@ -17,7 +17,7 @@ class ResultsCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = UIColor.primaryColor
         label.textAlignment = .left
-        label.font = FontHelper.blackFont(size: 14)
+        label.font = FontHelper.mediumFont(size: 14)
         label.numberOfLines = 1
         return label
     }()
@@ -26,7 +26,7 @@ class ResultsCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = UIColor.primaryColor
         label.textAlignment = .left
-        label.font = FontHelper.blackFont(size: 14)
+        label.font = FontHelper.mediumFont(size: 14)
         label.numberOfLines = 1
         return label
     }()
@@ -39,7 +39,8 @@ class ResultsCell: UICollectionViewCell {
     
     private var putterImage: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     

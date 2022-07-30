@@ -9,7 +9,7 @@ import Foundation
 import IGListKit
 
 protocol OptionSectionControllerDelegate {
-    func optionSelected()
+    func optionSelected(selectedOption: String)
 }
 
 class OptionSectionController: ListSectionController {
@@ -42,7 +42,7 @@ class OptionSectionController: ListSectionController {
         
         cell.update(text: object?.option, icon: object?.icon ?? "") {
             if let sself = wself {
-                sself.delegate?.optionSelected()
+                sself.delegate?.optionSelected(selectedOption: self.object?.option ?? "")
             }
         }
         

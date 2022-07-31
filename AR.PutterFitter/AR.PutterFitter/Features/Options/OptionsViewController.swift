@@ -8,6 +8,7 @@
 import UIKit
 import IGListKit
 import SnapKit
+import FirebaseAnalytics
 
 class OptionsViewController: UIViewController {
 
@@ -45,6 +46,8 @@ class OptionsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        Analytics.logEvent("page_view", parameters: ["page" : "Options"])
+        
         self.view.backgroundColor = .backgroundColor
     
         self.title = titleLabel.text
@@ -58,14 +61,15 @@ class OptionsViewController: UIViewController {
             make.edges.equalTo(self.view)
         }
         
-        self.start()
+        self.start(event: "start")
     }
     
-    private func start() {
+    private func start(event: String) {
         self.fittingDataOptions = FittingData.GetCharacteristicOptions()
         self.index = 0
         self.userWeights = UserWeights()
         self.showCharacteristic(index: self.index)
+        Analytics.logEvent(event, parameters: nil)
     }
     
     private func showCharacteristic(index: Int) {
@@ -102,6 +106,7 @@ class OptionsViewController: UIViewController {
         
         self.adapter.performUpdates(animated: true)
         self.adapter.reloadData()
+        Analytics.logEvent("show_loading", parameters: nil)
     }
     
     private func showResults(results: [ResultsDiffable], title: String) {
@@ -120,6 +125,7 @@ class OptionsViewController: UIViewController {
         
         self.adapter.performUpdates(animated: true)
         self.adapter.reloadData()
+        Analytics.logEvent("show_results", parameters: nil)
     }
     
     private func showResultsError() {
@@ -134,6 +140,7 @@ class OptionsViewController: UIViewController {
         
         self.adapter.performUpdates(animated: true)
         self.adapter.reloadData()
+        Analytics.logEvent("show_results_error", parameters: nil)
     }
     
     private func next(selectedOption: String) {
@@ -145,6 +152,7 @@ class OptionsViewController: UIViewController {
         } else {
             self.showLoading()
         }
+        Analytics.logEvent("next", parameters: ["index" : "\(index)"])
     }
     
     private func back() {
@@ -156,10 +164,11 @@ class OptionsViewController: UIViewController {
         } else {
             self.showLoading()
         }
+        Analytics.logEvent("back", parameters: ["index" : "\(index)"])
     }
     
     private func restart() {
-        start()
+        start(event: "restart")
     }
     
     private func loadData() {
@@ -221,6 +230,7 @@ class OptionsViewController: UIViewController {
         if let website = website, let url = URL(string: website) {
             UIApplication.shared.open(url)
         }
+        Analytics.logEvent("open_url", parameters: ["url" : website ?? "no_url"])
     }
 }
 extension OptionsViewController : ListAdapterDataSource {

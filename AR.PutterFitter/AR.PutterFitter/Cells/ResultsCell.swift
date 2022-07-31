@@ -47,7 +47,8 @@ class ResultsCell: UICollectionViewCell {
     private var forwardImage: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "Forward")
+        imageView.image = UIImage(named: "Forward")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .primaryColor
         return imageView
     }()
     

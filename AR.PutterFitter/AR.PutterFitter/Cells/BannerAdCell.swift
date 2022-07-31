@@ -13,7 +13,8 @@ import GoogleMobileAds
 class BannerAdCell : UICollectionViewCell {
     public static let identifier = "BannerAdCell"
     
-    private static let BANNER_ID = "ca-app-pub-3940256099942544/2934735716" // TEST
+//    private static let BANNER_ID = "ca-app-pub-3940256099942544/2934735716" // TEST
+    private static let BANNER_ID = "ca-app-pub-4411899771994288/2688150937"
     
     private var bannerView: GADBannerView?
     

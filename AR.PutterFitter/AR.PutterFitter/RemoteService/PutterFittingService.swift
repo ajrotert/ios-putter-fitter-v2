@@ -10,6 +10,8 @@ protocol PutterFittingService {
     func getMatches(userWeights: UserWeights, success: (([PutterData], String) -> ())?, failure: ((Error?) -> ())?)
 }
 
+class RemotePutterFittingServiceError : Error { }
+
 class RemotePutterFittingService {
     private let dominanteImportance = 1
     private let pathImportance = 5
@@ -164,9 +166,15 @@ extension RemotePutterFittingService : PutterFittingService {
     func getMatches(userWeights: UserWeights, success: (([PutterData], String) -> ())?, failure: ((Error?) -> ())?) {
         service.getPutterData { [weak self] putterData in
             guard let self = self else {
+                failure?(RemotePutterFittingServiceError())
                 return
             }
             
+            guard putterData.count > 0 else {
+                failure?(RemotePutterFittingServiceError())
+                return
+            }
+
             self.setPutterCharacteristics(userWeights: userWeights)
             
             var weights = [String]()

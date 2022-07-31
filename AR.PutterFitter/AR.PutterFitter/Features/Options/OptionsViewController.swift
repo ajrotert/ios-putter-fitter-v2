@@ -122,6 +122,20 @@ class OptionsViewController: UIViewController {
         self.adapter.reloadData()
     }
     
+    private func showResultsError() {
+        self.objects.removeAll()
+        
+        self.objects.append(BannerAdDiffable(rootViewController: self))
+        self.objects.append(ProgressDiffable(progress: Float(integerLiteral: Int64(index)) / Float(max(fittingDataOptions?.count ?? 0, 1)), count: "completed"))
+        
+        self.objects.append(LabelDiffable(text: "Error finding matches, please try again later."))
+
+        self.objects.append(ButtonDiffable(buttonText: "Restart"))
+        
+        self.adapter.performUpdates(animated: true)
+        self.adapter.reloadData()
+    }
+    
     private func next(selectedOption: String) {
         self.updateUserWeight(selectedOption: selectedOption, index: self.index)
         self.index += 1
@@ -161,8 +175,10 @@ class OptionsViewController: UIViewController {
                     group.enter()
                     DispatchQueue.global().async {
                         if let data = try? Data(contentsOf: url),
-                           let image = UIImage(data: data){
+                           let image = UIImage(data: data) {
                             results.append(ResultsDiffable(manufacturerText: putterDataMatch.manufacturer, modelText: putterDataMatch.model, website: putterDataMatch.website, putterImage: image))
+                        } else {
+                            results.append(ResultsDiffable(manufacturerText: putterDataMatch.manufacturer, modelText: putterDataMatch.model, website: putterDataMatch.website, putterImage: UIImage(named: "MissingIcon")!))
                         }
                         group.leave()
                     }
@@ -175,9 +191,7 @@ class OptionsViewController: UIViewController {
             }
             
         } failure: { error in
-            if let error = error {
-                print(error)
-            }
+            self.showResultsError()
         }
     }
     
